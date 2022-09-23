@@ -1,9 +1,7 @@
 #!/bin/bash
 
-#fibonnaci sequence --up 144. 100 is not a fibonacci number :-)
+N=101; #I am the number of numbers +1; a consequence of 'start of sum' problem, below
 
-N=13;
-#;this is the number of digits up to 144 (100 is not a fibonacci number after all!)
 
 #both the first and second numbers must also be declared, because of the way the loop 
 #starts. Remember programming this on that old TI-80 calculator in high school? it's the

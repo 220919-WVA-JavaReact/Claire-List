@@ -6,13 +6,24 @@
 #echo the number of positive numbers is $poscount
 #echo the number of negative numbers is $negcount
 
+declare -a array;
+
+#special array syntax: 'treat all instances of variable as an array pls'
+
 echo 'Enter 10 numbers!';
-read -a array n1 n2 n3 n4 n5 n6 n7 n8 n9 n0;
+read -a array;
 
 poscount=0;
 negcount=0;
 
-for ((i=0; i<array.length; i++))
+for elem in "${array[@]}"
 do
-	
-done
+#'if num + self = 0, negcount++' ?
+	if[ (${array:elem} + ${array:elem}) -eq 0] then
+	${negcount}+=1; fi;
+done;
+
+echo 'The number of positive numbers is:'
+10-${negcount}
+echo 'The number of negative numbers is:'
+${negcount};

@@ -19,7 +19,7 @@ negcount=0;
 for elem in "${array[@]}"
 do
 #'if num + self = 0, negcount++' ?
-	if[ (${array:elem} + ${array:elem}) -eq 0] then
+	if[ (${array:elem} + ${array:elem}) -eq 0] then ##something SCREWY is happening...
 	${negcount}+=1; fi;
 done;
 

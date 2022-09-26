@@ -14,8 +14,8 @@ negcount=0;
 
 for elem in "${array[@]}"
 do
-#if num = self negcount +1
-if[ (${array:elem} + ${array:elem}) -eq 0]
+
+if[ (${array:elem} + (${array:elem})*-1) -eq 0]
 then
 ${negcount}+=1;
 fi;

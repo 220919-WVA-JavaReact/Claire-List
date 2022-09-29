@@ -94,8 +94,13 @@ public class ControlFlow{
     public static int[] transformIntArr(int[] intArr){
         
         // logic
+        //checkFor multiple of three, then multiple that num by 2
+        for (int i = 0; i<intArr.length; i++)
+        if (intArr[i] % 3 == 0){
+            intArr[i] = intArr[i] * 2;
+        }
 
-        return new int[5];
+        return intArr; //this SHOULD work I SWEAR to GOD JAVA!!!!
     }
 
     /*

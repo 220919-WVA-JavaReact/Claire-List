@@ -109,16 +109,13 @@ public class ControlFlow{
     */
     public static int[] orderArr(int[] intArr){
         
-        // logic --reverse an array using a for loop
-        // intArr.forEach(()=>{
+        // logic
 
-        // })
-        //... just kidding, that's javaSCRIPT
             int tick;
-        for (int i=0; i<intArr.length / 2; i++){
+        for (int i=0; i<intArr.length; i++){ //omit div by 2... I yam close... I can smell it.
            tick= intArr[i];
            intArr[i] = intArr[intArr.length - i -1];
-           intArr[intArr.length - i -1] = tick;
+           intArr[intArr.length - 1 -i] = tick; //flip order here...
         }
 
         return intArr;

@@ -68,7 +68,7 @@ public class ControlFlow{
           System.out.println(word);
           // return word;
         };
-        return "";
+        return "I LOVE Java!";
         
     }
 
@@ -78,12 +78,18 @@ public class ControlFlow{
     public static boolean isEven(String s){
         
         // logic
+        int leng = s.length();
+        if (leng % 2 == 0){
+            return true;
+        } else {
+            return false;
+        }
 
-        return false;
+        
     }
 
     /*
-    This method should return an array of integer where all of the elements have been multiplied by 2 if they are a multiple of 3.
+    This method should return an array of integer where all of the elements have been multiplied by 2 if they are a multiple of 3. 'If timmy has 4 apples and Susan has 2.7, what color are the pine trees?' NULL.
     */
     public static int[] transformIntArr(int[] intArr){
         

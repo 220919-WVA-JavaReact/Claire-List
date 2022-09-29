@@ -114,8 +114,8 @@ public class ControlFlow{
             int tick;
         for (int i=0; i<intArr.length; i++){ //omit div by 2... I yam close... I can smell it.
            tick= intArr[i];
-           intArr[i] = intArr[intArr.length - i -1];
-           intArr[intArr.length - 1 -i] = tick; //flip order here...
+           intArr[i] = intArr[intArr.length - i - 1];
+           intArr[intArr.length - i - 1] = tick; //bak the other way. I KNOW this is the correct 'structure' of this algo, but it is no worky... (NO-OP --> NO-W*P ahaha)
         }
 
         return intArr;

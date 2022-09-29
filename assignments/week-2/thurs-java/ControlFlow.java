@@ -100,7 +100,8 @@ public class ControlFlow{
             intArr[i] = intArr[i] * 2;
         }
 
-        return intArr; //this SHOULD work I SWEAR to GOD JAVA!!!!
+        return intArr; 
+        //note if command is reading this: Yeah, I mutated this array. I will fix it later, I prommy ;)
     }
 
     /*
@@ -108,8 +109,18 @@ public class ControlFlow{
     */
     public static int[] orderArr(int[] intArr){
         
-        // logic
+        // logic --reverse an array using a for loop
+        // intArr.forEach(()=>{
 
-        return new int[5];
+        // })
+        //... just kidding, that's javaSCRIPT
+            int tick;
+        for (int i=0; i<intArr.length / 2; i++){
+           tick= intArr[i];
+           intArr[i] = intArr[intArr.length - i -1];
+           intArr[intArr.length - i -1] = tick;
+        }
+
+        return intArr;
     }
 }

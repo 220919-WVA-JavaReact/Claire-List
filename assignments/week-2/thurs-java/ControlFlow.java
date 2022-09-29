@@ -63,10 +63,13 @@ public class ControlFlow{
     public static String echo(String word, int times){
 
         // logic
-        for(int i=0; i<times; i++){
-            System.out.println(word);
-        }
+    
+       for(int i=0; i<times; i++){
+          System.out.println(word);
+          // return word;
+        };
         return "";
+        
     }
 
     /*

@@ -6,3 +6,5 @@ break;
 case: '-'
 ...rest,
 }
+
+TODOS:: sum, product, difference, quotient, remainder

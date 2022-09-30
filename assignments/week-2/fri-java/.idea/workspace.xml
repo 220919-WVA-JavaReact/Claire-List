@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e72af3fc-dd05-48ff-83fd-f3f043cc6a87" name="Changes" comment="" />
+    <list default="true" id="e72af3fc-dd05-48ff-83fd-f3f043cc6a87" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/calcul-actual/Java-calcul/src/main/java/com/revature/calc/DivisionEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calcul-actual/Java-calcul/src/main/java/com/revature/calc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/calcul-actual/Java-calcul/src/main/java/com/revature/calc/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/psuedocode.txt" beforeDir="false" afterPath="$PROJECT_DIR$/psuedocode.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +19,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FVMBwe1cRsQjOecXkf7PYYcOVA" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

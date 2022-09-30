@@ -1,0 +1,8 @@
+switch(selection){
+case: '+'
+sum(args)
+break;
+
+case: '-'
+...rest,
+}

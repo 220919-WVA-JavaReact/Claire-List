@@ -1,0 +1,7 @@
+I AM THE NOTES FOR MONDAY!!
+
+THESE are my own notes; interpretations on github notes. Reading...
+Using private modifiers on instance variables - along with public getter and setter methods - 
+helps with ENCAPSULATION, which is one of the pillars of object-oriented programming.
+
+note:: encaspuslation:: -->

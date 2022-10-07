@@ -9,9 +9,9 @@ import com.revature.util.ConnectionUtil;
 
 public class UserDAO implements UserDAOint { //need to create a User INTERFACE, then implement here!
     @Override
-    public Users getByUsername(String username){
+    public User getByUsername(String username){
         //create user object we will get data back to
-        Users user = new Users();
+        User user = new User();
 
         //connect with resources fed to us !
         try (Connection conn = ConnectionUtil.getConnection()){
@@ -40,7 +40,7 @@ public class UserDAO implements UserDAOint { //need to create a User INTERFACE, 
 
 
                 // NOW we create the user object!
-                user = new Users(id,first,last,username,password,email,role);
+                user = new User(id,first,last,username,password,email,role);
             }
         } catch (SQLException e){
             e.printStackTrace();
@@ -49,8 +49,8 @@ public class UserDAO implements UserDAOint { //need to create a User INTERFACE, 
     }
 
     @Override
-    public Users createUser(String first_name, String last_name, String username, String password, String email, int role_num){
-        Users user = new Users(); //new user object to INSERT into the database :-)
+    public User createUser(String first_name, String last_name, String username, String password, String email, int role_num){
+        User user = new User(); //new user object to INSERT into the database :-)
         try(Connection conn = ConnectionUtil.getConnection()){
             String sql = "INSERT INTO users (first_name, last_name, username, email, password, role_num) VALUES (?,?,?,?,?,?) RETURNING *"; //the RETURNING keyword is fun, here. I miss knex...
 
@@ -76,11 +76,11 @@ public class UserDAO implements UserDAOint { //need to create a User INTERFACE, 
                 String resFirst = rs.getString("first");
                 String resLast = rs.getString("last");
                 String resUsername = rs.getString("username");
-                String resEmail = res.getString("email");
+                String resEmail = rs.getString("email");
                 String resPassword = rs.getString("password");
                 int resRole = rs.getInt("role_num");
 
-                user = new Users(id, resFirst, resLast, resUsername, resEmail, resPassword, resRole);
+                user = new User(id, resFirst, resLast, resUsername, resEmail, resPassword, resRole); //RESOLVE me!
             }
 
         } catch (SQLException e) {

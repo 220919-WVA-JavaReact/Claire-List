@@ -15,22 +15,28 @@ public class User {
 
     //NOW we want to be able to call with both arguments and no-arg constructor! This way, on user create we are not calling something that does not exist yet!
 
-    public User(int user_id, String first_name, String last_name, String email, String password, int role_num){
+    public User(int user_id, String first_name, String last_name, String email, String password, String user_name, int role_num){
         this.user_id = user_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.password = password;
         this.role_num = role_num;
+        this.user_name = user_name;
     }
 
     public User(){} //no args, in case we need it :-) as a treat :-)
 
+    public String setUser_name() {
+        this.user_name = user_name;
+        return this.user_name;
+    }
     public int getUser_id(){
         return user_id;
     }
     public int setUser_id(){
         this.user_id = user_id;
+        return this.user_id;
     }
 
     public int getRole_num() {
@@ -38,6 +44,7 @@ public class User {
     }
     public int setRole_num(){
         this.user_id = user_id;
+        return this.user_id;
     }
 
     public String getFirst_name() {

@@ -2,6 +2,10 @@ package com.revature.services;
 
 import java.util.Scanner;
 
+import com.revature.models.User;
+import com.revature.services.UsersService;
+import com.revature.DAO.UserDAO;
+
 public class UsersService {
     UserDAO ud = new UserDAO(); //instanceOf the user DAO we created! :-)
     Scanner io = new Scanner(System.in); //"input/output" ie
@@ -12,7 +16,7 @@ public class UsersService {
         String password = io.nextLine();
 
         // Call the database
-        Users user = us.getByUsername(username);
+        User user = us.getByUsername(username);
 
         //password checking
         if(user.getPassword().equals(password)){
@@ -26,7 +30,7 @@ public class UsersService {
     }
     public User register(){
 
-        Users user = us.createUser(String name, String regusername, String email, String regpassword, int role_num); //currently not working ...
+        User user = us.createUser(String name, String regusername, String email, String regpassword, int role_num); //currently not working ...
         System.out.println("Please enter your NAME.");
         name = io.nextLine();
 
@@ -40,7 +44,7 @@ public class UsersService {
         regpassword = io.nextLine();
 
         System.out.println("Please enter your ROLE. 1 for employee, 2 for management.");
-        role_num = io.nextLine();
+        role_num = Integer.parseInt(io.nextLine()); //Im in love
 
         //next, must check username is unique
         //if (GetUsername = null),,

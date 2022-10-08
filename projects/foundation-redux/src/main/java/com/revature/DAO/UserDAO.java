@@ -9,7 +9,7 @@ import com.revature.util.ConnectionUtil;
 
 public class UserDAO implements UserDAOint { //need to create a User INTERFACE, then implement here!
     @Override
-    public User getByUsername(String username){
+    public User getByUsername(String user_name){
         //create user object we will get data back to
         User user = new User();
 
@@ -21,26 +21,26 @@ public class UserDAO implements UserDAOint { //need to create a User INTERFACE, 
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             //EYE set the string to the values
-            stmt.setString(1, username);
+            stmt.setString(1, user_name);
             ResultSet rs;
 
             if ((rs = stmt.executeQuery()) != null){
                 //results not blank? GREAT! we found the user...
                 rs.next();
 
-                // Now we can pull the information out and store it in the teacher object
+                // Now we can pull the information out and store it in the USER object
 
                 int id = rs.getInt("user_id");
                 String first = rs.getString("first_name");
                 String last = rs.getString("last_name");
-                String recUserN = rs.getString("username");
+                String recUserN = rs.getString("user_name");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
                 int role = rs.getInt("role_num");
 
 
                 // NOW we create the user object!
-                user = new User(id,first,last,username,password,email,role);
+                user = new User(id,first,last,recUserN,password,email,role);
             }
         } catch (SQLException e){
             e.printStackTrace();
@@ -49,20 +49,20 @@ public class UserDAO implements UserDAOint { //need to create a User INTERFACE, 
     }
 
     @Override
-    public User createUser(String first_name, String last_name, String username, String password, String email, int role_num){
+    public User createUser(String first_name, String last_name, String user_name, String password, String email, int role_num){
         User user = new User(); //new user object to INSERT into the database :-)
         try(Connection conn = ConnectionUtil.getConnection()){
-            String sql = "INSERT INTO users (first_name, last_name, username, email, password, role_num) VALUES (?,?,?,?,?,?) RETURNING *"; //the RETURNING keyword is fun, here. I miss knex...
+            String sql = "INSERT INTO users (first_name, last_name, user_name, email, password, role_num) VALUES (?,?,?,?,?,?) RETURNING *";
 
             //...remmber to PREPARE the statement !
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, first_name);
             stmt.setString(2, last_name);
-            stmt.setString(3, username);
+            stmt.setString(3, user_name);
             stmt.setString(4, email);
             stmt.setString(5, password);
-            stmt.setString(6, role_num);
+            stmt.setInt(6, role_num);
 
             ResultSet rs; //--> create result set ie
 
@@ -72,10 +72,10 @@ public class UserDAO implements UserDAOint { //need to create a User INTERFACE, 
                 rs.next();
 
                 // Obtain values
-                int id = rs.getInt("teacher_id"); //...resX ie, result or from "response". I miss res.json...
-                String resFirst = rs.getString("first");
-                String resLast = rs.getString("last");
-                String resUsername = rs.getString("username");
+                int id = rs.getInt("user_id"); //...resX ie, result or from "response". I miss res.json...
+                String resFirst = rs.getString("first_name");
+                String resLast = rs.getString("last_name");
+                String resUsername = rs.getString("user_name");
                 String resEmail = rs.getString("email");
                 String resPassword = rs.getString("password");
                 int resRole = rs.getInt("role_num");

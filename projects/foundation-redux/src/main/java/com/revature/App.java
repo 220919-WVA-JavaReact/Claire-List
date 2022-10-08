@@ -23,9 +23,8 @@ public class App {
 
         //NEXT TODO: BUILD interface for creating tickets, viewing tickets
         //must take in username, amount, and reason
-
+        System.out.println("Type 1 to login with your credentials; 2 to register. Press 'q' to exit this program.");
         while (on) {
-            System.out.println("Type 1 to login with your credentials; 2 to register. Press 'q' to exit this program.");
             Scanner io = new Scanner(System.in);
             String choice = io.nextLine();
 
@@ -33,11 +32,16 @@ public class App {
             switch (choice) {
                 case "1":
                     us.login();
+                    break;
+                case "t":
 
+                    System.out.println("Type 'v' to view tickets, 'n' to create a new ticket \n or type 'q' to return to previous menu.");
+                    tickContext = true;
                     String tickop = io.nextLine();
 
+
                     while (tickContext) {
-                        System.out.println("Type 'v' to view tickets, 'n' to create a new ticket \n or type 'q' to return to previous menu.");
+
                         switch (tickop) {
                             case "v":
                                 System.out.println("Here is where you can view tickets!");

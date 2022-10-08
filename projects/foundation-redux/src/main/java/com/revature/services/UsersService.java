@@ -21,8 +21,8 @@ public class UsersService {
         //password checking
         if(user.getPassword().equals(password)){
             System.out.println("Welcome, " + username);
-            System.out.println("type 't' to view ticket menu options, or 'q' to logout.");
-            System.out.println(user);
+            System.out.println("type 't' to view ticket menu options, or 'l' to logout.");
+            //System.out.println(user);
 
             return user;
         } else {

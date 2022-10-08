@@ -33,8 +33,12 @@ public class App {
                 case "1":
                     us.login();
                     break;
-                case "t":
 
+                case "l":
+                    System.out.println("Type 1 to login with your credentials; 2 to register. Press 'q' to exit this program.");
+                    break;
+
+                case "t":
                     System.out.println("Type 'v' to view tickets, 'n' to create a new ticket \n or type 'q' to return to previous menu.");
                     tickContext = true;
                     String tickop = io.nextLine();
@@ -65,6 +69,7 @@ public class App {
 
                             case "q":
                                 tickContext = false;
+                                System.out.println("type 't' to view ticket menu options, or 'l' to logout.");
                                 break;
 
                             default:

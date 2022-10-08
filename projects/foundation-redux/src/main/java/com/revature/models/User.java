@@ -92,7 +92,7 @@ public class User {
                 "user_id=" + user_id +
                 ", first='" + first_name + '\'' +
                 ", last='" + last_name + '\'' +
-                ", username='" + username + '\'' +
+                ", username='" + user_name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role_num + '\'' +
@@ -106,12 +106,12 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         // Explicit Type Casting
         User user = (User) o;
-        return user_id == user.user_id && first_name.equals(user.first_name) && last_name.equals(user.last_name) && username.equals(user.username) && password.equals(user.password) && email.equals(user.email) && role_num == user.role_num;
+        return user_id == user.user_id && first_name.equals(user.first_name) && last_name.equals(user.last_name) && user_name.equals(user.user_name) && password.equals(user.password) && email.equals(user.email) && role_num == user.role_num;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user_id, first_name, last_name, username, password, email, role_num);
+        return Objects.hash(user_id, first_name, last_name, user_name, password, email, role_num);
     }
 }
-}
+

@@ -1,10 +1,8 @@
 package com.revature.DAO;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
-import com.revature.models.User; //be sure to create me too! :-)
+import com.revature.models.User;
 import com.revature.util.ConnectionUtil;
 
 public class UserDAO implements UserDAOint { //need to create a User INTERFACE, then implement here!

@@ -5,7 +5,7 @@ import com.revature.models.Ticket;
 import java.util.List;
 
 public interface TicketDAOint {
-    Ticket createTicket(int ticket_id, int created_by, String reason, float amount, String status);
+    Ticket createTicket(int created_by, String reason, float amount, String status);
 
     List<Ticket> getUserTickets(); //"I am an employee, I can only see MY tickets"
 

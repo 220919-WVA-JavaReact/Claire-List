@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface TicketDAOint {
-    Ticket createTicket(String reason, float amount, String status);
+    Ticket createTicket(String reason, float amount, User user);
 
     List<Ticket> getUserTickets(String user_name); //"I am an employee, I can only see MY tickets". If user_name = user.getUser_name() , allow
                                                                                                     // else, disallow

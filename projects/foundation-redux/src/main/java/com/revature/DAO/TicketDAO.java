@@ -10,15 +10,33 @@ import java.util.List;
 import com.revature.models.Ticket;
 public class TicketDAO implements TicketDAOint {
     @Override
-    public Ticket createTicket(String reason, float amount, String status) {
+    public Ticket createTicket(String reason, float amount, User user) {
         Ticket ticket = new Ticket();
+        //User user = new User();
+        int created_by = user.getUser_id();
 
         try (Connection conn = ConnectionUtil.getConnection()){
-            String sql = "INSERT INTO tickets () VALUES (?,?,?,?)";
+            String sql = "INSERT INTO tickets (created_by, reason, amount) VALUES (?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
-                //IN PROGRESS
-                //IN PROGRESS
-                //IN PROGRESS
+
+            stmt.setInt(1, created_by);
+            stmt.setString(2, reason);
+            stmt.setFloat(3, amount);
+
+            ResultSet rs;
+
+            if ((rs = stmt.executeQuery()) != null){
+                rs.next(); //VERY important that we call next! Otherwise, "waht do you want me to do??"
+
+                int ticket_id = rs.getInt("ticket_id");
+                int createdBy = rs.getInt("created_by"); //redundant
+                String rson = rs.getString("reason");
+                float amnt = rs.getFloat("amount");
+                String status = rs.getString("status");
+
+               ticket = new Ticket(ticket_id, createdBy, rson, amnt, status); //dear GOD please work....
+               //int ticket_id, int created_by, String reason, float amount, String status
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,7 +56,7 @@ public class TicketDAO implements TicketDAOint {
         //THIS username is used to print out that specific user's tickets
         Connection conn = ConnectionUtil.getConnection();
         List<Ticket> tickets = new ArrayList<>();
-        User tixUser = new User();
+       // User tixUser = new User();
 
         try{
 
@@ -49,10 +67,6 @@ public class TicketDAO implements TicketDAOint {
             stmt.setInt(1, user.getUser_id());
 
             ResultSet rs = stmt.executeQuery(usSQL);
-
-            //I AM STILL IN PROGRESS
-            //I AM STILL IN PROGRESS
-            //I AM STILL IN PROGRESS
 
             while (rs.next()){
 

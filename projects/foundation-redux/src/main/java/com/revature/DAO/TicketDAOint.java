@@ -1,6 +1,7 @@
 package com.revature.DAO;
 
 import com.revature.models.Ticket;
+import com.revature.models.User;
 import com.revature.util.ConnectionUtil;
 
 import java.sql.*;
@@ -13,5 +14,5 @@ public interface TicketDAOint {
     List<Ticket> getUserTickets(String user_name); //"I am an employee, I can only see MY tickets". If user_name = user.getUser_name() , allow
                                                                                                     // else, disallow
 
-    List<Ticket> getAllTickets(int user_id);
+    List<Ticket> getAllTickets(User user);
 }

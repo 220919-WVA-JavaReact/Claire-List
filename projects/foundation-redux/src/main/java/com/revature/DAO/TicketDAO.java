@@ -1,4 +1,4 @@
 package com.revature.DAO;
 
-public class TicketDAO {
+public class TicketDAO implements TicketDAOint {
 }

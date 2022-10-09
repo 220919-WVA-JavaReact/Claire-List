@@ -8,7 +8,7 @@ public class Ticket {
     private float amount;
     private String status;
 
-    public Ticket(int ticket_id, int created_by, String reason, float amount, String status){
+    public Ticket(int ticket_id, int created_by, String reason, float amount, String status) {
         this.ticket_id = ticket_id;
         this.created_by = created_by;
         this.reason = reason;
@@ -16,7 +16,8 @@ public class Ticket {
         this.status = status;
     }
 
-    public Ticket(){}
+    public Ticket() {
+    }
 
     public int getTicket_id() {
         return ticket_id;
@@ -56,5 +57,16 @@ public class Ticket {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Your Ticket: {" +
+                "ticket_id=" + ticket_id +
+                ", created by='" + created_by + '\'' +
+                ", amount='" + amount + '\'' +
+                ", status='" + status + '\'' +
+                 '}';
     }
 }

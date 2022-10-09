@@ -45,6 +45,10 @@ public class TicketDAO implements TicketDAOint {
             stmt.setInt(1, user_id);
             ResultSet rs = stmt.executeQuery(usSQL);
 
+            //I AM STILL IN PROGRESS
+            //I AM STILL IN PROGRESS
+            //I AM STILL IN PROGRESS
+
             while (rs.next()){
                 Ticket tickets = new Ticket(ticket_id, createdBy, reason, amount, status)
             }

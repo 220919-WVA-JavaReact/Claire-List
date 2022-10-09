@@ -40,6 +40,7 @@ public class App {
 
                 case "t":
                     System.out.println("Type 'v' to view tickets, 'n' to create a new ticket \n or type 'q' to return to previous menu.");
+
                     tickContext = true;
                     String tickop = io.nextLine();
 
@@ -48,10 +49,12 @@ public class App {
 
                         switch (tickop) {
                             case "v":
+                                //ts.viewTix();
                                 System.out.println("Here is where you can view tickets!");
                                 break;
 
                             case "n":
+                                //ts.create();
                                 System.out.println("Create a NEW ticket here!");
                                 System.out.println("For whom is this ticket?"); //getUserName();
 

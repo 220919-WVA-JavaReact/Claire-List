@@ -50,7 +50,17 @@ public class TicketDAO implements TicketDAOint {
             //I AM STILL IN PROGRESS
 
             while (rs.next()){
-                Ticket tickets = new Ticket(ticket_id, createdBy, reason, amount, status)
+
+
+                int ticket_id = rs.getInt("ticket_id");
+                String createdBy = rs.getString("user_name"); //I really REALLY hope this works!
+                String reason = rs.getString("last");
+                float amount = Float.parseFloat(rs.getString("amount"));
+                String status = rs.getString("password");
+
+                Ticket tickets = new Ticket(ticket_id, createdBy, reason, amount, status);
+                teachers.add(teach);
+
             }
         } catch (SQLException e){
             e.printStackTrace();

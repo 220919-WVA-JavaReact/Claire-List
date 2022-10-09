@@ -19,6 +19,10 @@ public class Ticket {
     public Ticket() {
     }
 
+    public Ticket(int ticket_id, String createdBy, String reason, float amount, String status) { //I am the ticket viewed from user, NOT the ticket created
+    }
+
+    
     public int getTicket_id() {
         return ticket_id;
     }

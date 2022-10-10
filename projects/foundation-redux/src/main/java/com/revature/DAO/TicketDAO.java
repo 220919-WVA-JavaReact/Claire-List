@@ -13,7 +13,7 @@ public class TicketDAO implements TicketDAOint {
     public Ticket createTicket(String reason, float amount, User user) {
         Ticket ticket = new Ticket();
         //User user = new User();
-        int created_by = user.getUser_id();
+        int created_by = 31; //change bt GET and SET ? //user.getUser_id()
 
         try (Connection conn = ConnectionUtil.getConnection()){
             String sql = "INSERT INTO tickets (created_by, reason, amount) VALUES (?,?,?)";

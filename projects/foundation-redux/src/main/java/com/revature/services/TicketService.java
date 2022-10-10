@@ -4,6 +4,7 @@ import com.revature.DAO.TicketDAO;
 import com.revature.models.Ticket;
 import com.revature.models.User;
 
+import java.util.List;
 import java.util.Scanner;
 //ticket model, ticketDAO
 
@@ -13,11 +14,11 @@ public class TicketService {
     Scanner io = new Scanner(System.in);
     //I need:: "user_name" to feed to the below. Can i just do a
     //if user.role_num == 2, get all tix. else, only user's own tickets.
-    public Ticket create(){
-        Ticket usertick = new Ticket();
+    public Ticket create(User user){
+       /// Ticket usertick = new Ticket();
         //user.getUser_id();
 
-        User user = usertick.getUser();
+       // User user = usertick.getUser();
 
 
         System.out.println("enter the REASON for this reimbursement request");
@@ -27,11 +28,20 @@ public class TicketService {
         float amount = io.nextFloat();
 
         //okay, so we have to pull out the user; the above will not work.
+
     Ticket tix = td.createTicket(reason, amount, user);
     tix.setUser(user);
         System.out.println("Your ticket: " + tix);
         return tix;
 
+    }
+
+    public List<Ticket> view(User user){
+        System.out.println("Here you can VIEW the tickets.");
+        List<Ticket> allTix = td.getAllTickets(user);
+
+        System.out.println("This USER's tickets: \n" + allTix);
+        return allTix; //ARE YOU HAPPY NOW JAVA
     }
 
 }

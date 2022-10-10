@@ -30,11 +30,12 @@ public class App {
         while (on) {
             Scanner io = new Scanner(System.in);
             String choice = io.nextLine();
-
+            User loggedInUser = new User(); //ARE YOU HAPPY JAVA
 
             switch (choice) {
                 case "1":
-                    us.login();
+
+                    loggedInUser = us.login();
                     break;
 
                 case "l":
@@ -52,14 +53,14 @@ public class App {
 
                         switch (tickop) {
                             case "v":
-                                //ts.viewTix();
+                                ts.view(loggedInUser);
                                 System.out.println("Here is where you can view tickets!");
                                 break;
 
                             case "n":
                                // User user = new User();
                                 System.out.println("Create a NEW ticket here!");
-                                ts.create();
+                                ts.create(loggedInUser);
                                 break;
                             //ticket.createTicket(infos);
 

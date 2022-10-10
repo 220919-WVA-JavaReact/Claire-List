@@ -13,9 +13,12 @@ public class TicketService {
     Scanner io = new Scanner(System.in);
     //I need:: "user_name" to feed to the below. Can i just do a
     //if user.role_num == 2, get all tix. else, only user's own tickets.
-    public Ticket create(User user){
-        //User user = new User(); //I am not a NEW user though. investigating...
+    public Ticket create(){
+        Ticket usertick = new Ticket();
         //user.getUser_id();
+
+        User user = usertick.getUser();
+
 
         System.out.println("enter the REASON for this reimbursement request");
         String reason =io.nextLine();

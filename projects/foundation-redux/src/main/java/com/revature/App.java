@@ -57,9 +57,9 @@ public class App {
                                 break;
 
                             case "n":
-                                User user = new User();
+                               // User user = new User();
                                 System.out.println("Create a NEW ticket here!");
-                                ts.create(user);
+                                ts.create();
                                 break;
                             //ticket.createTicket(infos);
 

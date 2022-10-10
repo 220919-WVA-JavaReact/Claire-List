@@ -13,9 +13,10 @@ public class TicketService {
     Scanner io = new Scanner(System.in);
     //I need:: "user_name" to feed to the below. Can i just do a
     //if user.role_num == 2, get all tix. else, only user's own tickets.
-    public Ticket create(){
-        User user = new User(); //I am not a NEW user though. investigating...
-        id = user.getUser_id();
+    public Ticket create(User user){
+        //User user = new User(); //I am not a NEW user though. investigating...
+        //user.getUser_id();
+
         System.out.println("enter the REASON for this reimbursement request");
         String reason =io.nextLine();
 
@@ -23,7 +24,7 @@ public class TicketService {
         float amount = io.nextFloat();
 
         //okay, so we have to pull out the user; the above will not work.
-    Ticket tix = td.createTicket(reason, amount, id);
+    Ticket tix = td.createTicket(reason, amount, user);
     tix.setUser(user);
         System.out.println("Your ticket: " + tix);
         return tix;

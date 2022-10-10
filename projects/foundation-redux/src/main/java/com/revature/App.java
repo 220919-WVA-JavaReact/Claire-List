@@ -2,6 +2,7 @@ package com.revature;
 
 import java.util.Scanner;
 
+import com.revature.models.User;
 import com.revature.services.TicketService;
 import com.revature.services.UsersService;
 
@@ -56,9 +57,9 @@ public class App {
                                 break;
 
                             case "n":
-
+                                User user = new User();
                                 System.out.println("Create a NEW ticket here!");
-                                ts.create();
+                                ts.create(user);
                                 break;
                             //ticket.createTicket(infos);
 

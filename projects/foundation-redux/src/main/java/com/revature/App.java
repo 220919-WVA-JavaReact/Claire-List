@@ -2,6 +2,7 @@ package com.revature;
 
 import java.util.Scanner;
 
+import com.revature.services.TicketService;
 import com.revature.services.UsersService;
 
 public class App {
@@ -17,6 +18,7 @@ public class App {
         // public static UsersService us = new UsersService(); //when built...
 
         UsersService us = new UsersService(); //...let's check this is wired up ...
+        TicketService ts = new TicketService();
         boolean on = true; //I control the application run state. Switch to false to exit program execution.
         //initialize user objs, for prosperity
         boolean tickContext = false; //I control the context for ticket menu. Set me to TRUE to toggle ticket context menu ie
@@ -54,19 +56,9 @@ public class App {
                                 break;
 
                             case "n":
-                                //ts.create();
+
                                 System.out.println("Create a NEW ticket here!");
-                                System.out.println("For whom is this ticket?"); //getUserName();
-
-                                String tusername = io.nextLine();
-
-                                System.out.println("How much should " + tusername + " be reiumbursed?");
-                                String amount = io.nextLine(); //check to make this a float value!
-
-                                System.out.println("For what REASON is this reimbursement requested?");
-                                String reason = io.nextLine();
-
-                                System.out.println("User " + tusername + " requests " + amount + " for reason \n " + reason);
+                                ts.create();
                                 break;
                             //ticket.createTicket(infos);
 

@@ -74,6 +74,6 @@ public class UsersService {
         } else if (check == 2){
             return 2;
         }
-        return -1;
+        return 0;
     }
 }

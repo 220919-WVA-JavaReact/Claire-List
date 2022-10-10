@@ -66,7 +66,7 @@ public class TicketDAO implements TicketDAOint {
 
             stmt.setInt(1, user.getUser_id());
 
-            ResultSet rs = stmt.executeQuery(usSQL);
+            ResultSet rs = stmt.executeQuery(usSQL); //I apparently cannot take a query method that takes a string on PreparedStatement. CURRENTLY VERY BROKEN, INFINITE LOOP STYLE.
 
             while (rs.next()){
 

@@ -38,7 +38,7 @@ public class TicketService {
 
     public List<Ticket> view(User user){
         System.out.println("Here you can VIEW the tickets.");
-        List<Ticket> allTix = td.getAllTickets(user);
+        List<Ticket> allTix = td.getAllTickets(user); //I am creating PROBLEMS at runtime
 
         System.out.println("This USER's tickets: \n" + allTix);
         return allTix; //ARE YOU HAPPY NOW JAVA

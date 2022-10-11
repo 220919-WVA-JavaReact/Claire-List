@@ -5,6 +5,8 @@ import java.sql.*;
 import com.revature.models.User;
 import com.revature.util.ConnectionUtil;
 
+import static java.util.Objects.nonNull;
+
 public class UserDAO implements UserDAOint { //need to create a User INTERFACE, then implement here!
     @Override
     public User getByUsername(String user_name){
@@ -62,24 +64,30 @@ public class UserDAO implements UserDAOint { //need to create a User INTERFACE, 
             stmt.setString(5, password);
             stmt.setInt(6, role_num);
 
-            ResultSet rs; //--> create result set ie
+            ResultSet rs;
 
-            if ((rs = stmt.executeQuery()) != null){
+            String empty = ""; //JAVA! ENOUGH!!!!!!!!!!!!!
+            if(user_name.equals(empty)) {
+                System.out.println("Must provide the requested info for the record, \n please try again.");
+            } else {
+                if ((rs = stmt.executeQuery()) != null) {
 
-                //........ move cursor FORWARD!
-                rs.next();
+                    //........ move cursor FORWARD!
+                    rs.next();
 
-                // Obtain values
-                int id = rs.getInt("user_id"); //...resX ie, result or from "response". I miss res.json...
-                String resFirst = rs.getString("first_name");
-                String resLast = rs.getString("last_name");
-                String resUsername = rs.getString("user_name");
-                String resEmail = rs.getString("email");
-                String resPassword = rs.getString("password");
-                int resRole = rs.getInt("role_num");
+                    // Obtain values
+                    int id = rs.getInt("user_id"); //...resX ie, result or from "response". I miss res.json...
+                    String resFirst = rs.getString("first_name");
+                    String resLast = rs.getString("last_name");
+                    String resUsername = rs.getString("user_name");
+                    String resEmail = rs.getString("email");
+                    String resPassword = rs.getString("password");
+                    int resRole = rs.getInt("role_num");
 
-                user = new User(id, resFirst, resLast, resUsername, resEmail, resPassword, resRole); //RESOLVE me!
+                    user = new User(id, resFirst, resLast, resUsername, resEmail, resPassword, resRole); //RESOLVE me!
+                }
             }
+
 
         } catch (SQLException e) {
             e.printStackTrace();

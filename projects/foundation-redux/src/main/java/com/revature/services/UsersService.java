@@ -24,6 +24,7 @@ public class UsersService {
             System.out.println("type 't' to view ticket menu options, or 'l' to logout.");
             //System.out.println(user);
 
+            user.setUser_name(username);
             return user;
         } else {
             System.out.println("Invalid Login");

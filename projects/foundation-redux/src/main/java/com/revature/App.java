@@ -54,7 +54,7 @@ public class App {
                         switch (tickop) {
                             case "v":
                                 ts.view(loggedInUser);
-                                System.out.println("Here is where you can view tickets!");
+                                //   System.out.println("Here is where you can view tickets!");
                                 break;
 
                             case "n":

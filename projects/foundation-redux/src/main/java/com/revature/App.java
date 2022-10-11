@@ -55,6 +55,7 @@ public class App {
                             case "v":
                                 ts.view(loggedInUser);
                                 //   System.out.println("Here is where you can view tickets!");
+                                tickContext = false; //will THIS break the loop?
                                 break;
 
                             case "n":

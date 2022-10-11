@@ -6,7 +6,6 @@ import com.revature.models.User;
 
 import java.util.List;
 import java.util.Scanner;
-//ticket model, ticketDAO
 
 public class TicketService {
     TicketDAO td = new TicketDAO();
@@ -38,10 +37,11 @@ public class TicketService {
 
     public void view(User user){ //List<Ticket> view(User user
         System.out.println("Here you can VIEW the tickets.");
+        user.setUser_name(user.getUser_name());
        // List<Ticket> allTix = td.getAllTickets(user); //I am creating PROBLEMS at runtime
-        System.out.println(user.getUser_name().toString());
+        System.out.println(user.getUser_name().toString()); //user is still NULL ??????????????
        // System.out.println("This USER's tickets: \n" + allTix);
-       // return allTix; //ARE YOU HAPPY NOW JAVA
+       // return allTix;
     }
 
 }

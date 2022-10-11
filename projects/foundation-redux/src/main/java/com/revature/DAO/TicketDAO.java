@@ -52,7 +52,7 @@ public class TicketDAO implements TicketDAOint {
     }
 
     @Override
-    public List<Ticket> getAllTickets(User user){ //"I am a manager, I can see all tickets". Do not check if this username == own user username, uneeded.
+    public List<Ticket> getAllTickets(User user){ //I am a USER, I can see my own tickets
         //THIS username is used to print out that specific user's tickets
         Connection conn = ConnectionUtil.getConnection();
         List<Ticket> tickets = new ArrayList<>();
@@ -61,14 +61,15 @@ public class TicketDAO implements TicketDAOint {
         try{
 
 
-            String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_id = ?;"; //"all except created_by int is needed, bc we have th euser name.
+            String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = ?;"; //"all except created_by int is needed, bc we have th euser name.
             PreparedStatement stmt = conn.prepareStatement(usSQL);
 
-            stmt.setInt(1, user.getUser_id());
+            stmt.setString(1, user.getUser_name());
 
-            ResultSet rs = stmt.executeQuery(); //I apparently cannot take a query method that takes a string on PreparedStatement. CURRENTLY VERY BROKEN, INFINITE LOOP STYLE.
+            ResultSet rs = stmt.executeQuery(); // let's see if the loop is not a problem anymore
 
-            while (rs.next()){
+            if ((rs = stmt.executeQuery()) != null) {
+                rs.next();
 
 
                 int ticket_id = rs.getInt("ticket_id");
@@ -76,12 +77,12 @@ public class TicketDAO implements TicketDAOint {
                 String reason = rs.getString("reason");
                 float amount = Float.parseFloat(rs.getString("amount"));
                 String status = rs.getString("password");
-                 user.setUser_name(rs.getString("user_name"));
+                user.setUser_name(rs.getString("user_name"));
 
                 Ticket ticket = new Ticket(ticket_id, createdBy, reason, amount, status, user); // F I X me!
                 tickets.add(ticket);
-
             }
+
         } catch (SQLException e){
             e.printStackTrace();
         }

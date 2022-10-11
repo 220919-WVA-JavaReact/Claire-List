@@ -61,7 +61,7 @@ public class TicketDAO implements TicketDAOint {
         try{
 
 
-            String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = ?;"; //"all except created_by int is needed, bc we have th euser name.
+            String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = '?';"; //"all except created_by int is needed, bc we have th euser name.
             PreparedStatement stmt = conn.prepareStatement(usSQL);
 
             stmt.setString(1, user.getUser_name());

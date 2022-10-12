@@ -48,23 +48,17 @@ public class TicketDAO implements TicketDAOint {
 
     @Override
     public List<Ticket> getUserTickets(String user_name) {
-        return null;
-    }
-
-    @Override
-    public List<Ticket> getAllTickets(User user){ //I am a USER, I can see my own tickets
-        //THIS username is used to print out that specific user's tickets
         Connection conn = ConnectionUtil.getConnection();
         List<Ticket> tickets = new ArrayList<>();
-       // User tixUser = new User();
+        // User tixUser = new User();
 
         try{
 
 
-            String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = '?';"; //"all except created_by int is needed, bc we have th euser name.
+            String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = '?';"; //"all except created_by int is needed, bc we have th euser name. MOVE THIS LOGIC ABOVE TO GET USER TICKETS!
             PreparedStatement stmt = conn.prepareStatement(usSQL);
 
-            stmt.setString(1, user.getUser_name());
+            stmt.setString(1, user_name);
 
             ResultSet rs = stmt.executeQuery(); // let's see if the loop is not a problem anymore
 
@@ -77,9 +71,47 @@ public class TicketDAO implements TicketDAOint {
                 String reason = rs.getString("reason");
                 float amount = Float.parseFloat(rs.getString("amount"));
                 String status = rs.getString("password");
-                user.setUser_name(rs.getString("user_name"));
+                String username = rs.getString("user_name"));
 
-                Ticket ticket = new Ticket(ticket_id, createdBy, reason, amount, status, user); // F I X me!
+                Ticket ticket = new Ticket(ticket_id, createdBy, reason, amount, status, username); // F I X me!
+                tickets.add(ticket);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return tickets;
+    }
+
+
+    @Override
+    public List<Ticket> getAllTickets(){ // REFACTOR:: SHOULD TAKE IN NO ARGS.
+        Connection conn = ConnectionUtil.getConnection();
+        List<Ticket> tickets = new ArrayList<>();
+       // User tixUser = new User();
+
+        try{
+
+
+            String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by;";
+            PreparedStatement stmt = conn.prepareStatement(usSQL);
+
+
+
+            ResultSet rs = stmt.executeQuery(); // let's see if the loop is not a problem anymore
+
+            if ((rs = stmt.executeQuery()) != null) {
+                rs.next();
+
+
+                int ticket_id = rs.getInt("ticket_id");
+                int createdBy = rs.getInt("created_by"); //I really REALLY hope this works!
+                String reason = rs.getString("reason");
+                float amount = Float.parseFloat(rs.getString("amount"));
+                String status = rs.getString("password");
+                String username = rs.getString("user_name");
+
+                Ticket ticket = new Ticket(ticket_id, createdBy, reason, amount, status, username); // F I X me!
                 tickets.add(ticket);
             }
 

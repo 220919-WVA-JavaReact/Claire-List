@@ -8,7 +8,7 @@ public class Ticket {
     private float amount;
     private String status;
 
-    private User user;
+    private String user;
 
     public Ticket(int ticket_id, int created_by, String reason, float amount, String status) { //I am used to CREATE a ticket
         this.ticket_id = ticket_id;
@@ -24,7 +24,7 @@ public class Ticket {
 //    public Ticket(int ticket_id, int created_by, String reason, float amount, String status) {
 //    }
 
-    public Ticket(int ticket_id, int created_by, String reason, float amount, String status, User user) { //I am used to VIEW TICKETS ie
+    public Ticket(int ticket_id, int created_by, String reason, float amount, String status, String user) { //I am used to VIEW TICKETS ie
         this.ticket_id = ticket_id;
         this.created_by = created_by;
         this.reason = reason;
@@ -74,11 +74,11 @@ public class Ticket {
         this.status = status;
     }
 
-    public User getUser() {
+    public String getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(String user) {
         this.user = user;
     }
 

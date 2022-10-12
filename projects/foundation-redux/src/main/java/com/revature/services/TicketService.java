@@ -29,7 +29,7 @@ public class TicketService {
         //okay, so we have to pull out the user; the above will not work.
 
     Ticket tix = td.createTicket(reason, amount, user);
-    tix.setUser(user);
+   // tix.setUser(user);
         System.out.println("Your ticket: " + tix);
         return tix;
 

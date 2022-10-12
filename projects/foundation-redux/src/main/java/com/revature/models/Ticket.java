@@ -22,9 +22,9 @@ public class Ticket {
     }
 
 
-    public Ticket(int ticket_id, int created_by, String reason, float amount, String status, String user) { //I am used to VIEW TICKETS ie
+    public Ticket(int ticket_id, String reason, float amount, String status, String user) { //I am used to VIEW TICKETS ie
         this.ticket_id = ticket_id;
-        this.created_by = created_by;
+        //this.created_by = created_by;
         this.reason = reason;
         this.amount = amount;
         this.status = status;

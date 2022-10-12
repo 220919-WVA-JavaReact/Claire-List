@@ -55,25 +55,28 @@ public class TicketDAO implements TicketDAOint {
         try{
 
 
-            String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = '?';"; //"all except created_by int is needed, bc we have th euser name. MOVE THIS LOGIC ABOVE TO GET USER TICKETS!
+            String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = ?;";
+            //removed single quotes, let's see if it works...
             PreparedStatement stmt = conn.prepareStatement(usSQL);
 
-            stmt.setString(1, user_name); //now we are getting a COLUMN INDEX IS OUT OF RANGE error. Digging...
+            stmt.setString(1, user_name);
 
-            ResultSet rs = stmt.executeQuery(); // let's see if the loop is not a problem anymore
+            ResultSet rs = stmt.executeQuery();
 
             if ((rs = stmt.executeQuery()) != null) {
                 rs.next();
 
 
                 int ticket_id = rs.getInt("ticket_id");
-                int createdBy = rs.getInt("created_by"); //I really REALLY hope this works!
+               // int createdBy = rs.getInt("created_by"); //I really REALLY hope this works!
                 String reason = rs.getString("reason");
                 float amount = Float.parseFloat(rs.getString("amount"));
-                String status = rs.getString("password");
+                String status = rs.getString("status");
                 String username = rs.getString("user_name");
 
-                Ticket ticket = new Ticket(ticket_id, createdBy, reason, amount, status, username); // F I X me!
+                Ticket ticket = new Ticket(ticket_id, reason, amount, status, username); //currently returngin
+                //// [Your Ticket: {ticket_id=11, created by='0', amount='26.86', status='pending'}]
+                // closer!
                 tickets.add(ticket);
             }
 
@@ -105,13 +108,13 @@ public class TicketDAO implements TicketDAOint {
 
 
                 int ticket_id = rs.getInt("ticket_id");
-                int createdBy = rs.getInt("created_by"); //I really REALLY hope this works!
+              //  int createdBy = rs.getInt("created_by"); //I really REALLY hope this works!
                 String reason = rs.getString("reason");
                 float amount = Float.parseFloat(rs.getString("amount"));
-                String status = rs.getString("password");
+                String status = rs.getString("status");
                 String username = rs.getString("user_name");
 
-                Ticket ticket = new Ticket(ticket_id, createdBy, reason, amount, status, username); // F I X me!
+                Ticket ticket = new Ticket(ticket_id, reason, amount, status, username); // DEPRECATED createdBy. Testing...
                 tickets.add(ticket);
             }
 

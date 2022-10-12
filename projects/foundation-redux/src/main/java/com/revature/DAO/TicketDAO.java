@@ -16,26 +16,31 @@ public class TicketDAO implements TicketDAOint {
        // int created_by = 31; //change bt GET and SET ? //user.getUser_id()
 
         try (Connection conn = ConnectionUtil.getConnection()){
-            String sql = "INSERT INTO tickets (created_by, reason, amount) VALUES (?,?,?)";
+            String sql = "INSERT INTO tickets (created_by, reason, amount) VALUES (?,?,?);";
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, created_by);
             stmt.setString(2, reason);
             stmt.setFloat(3, amount);
 
-            ResultSet rs; //need to dig into this:: not returning any query results...
+           // stmt.executeQuery();
 
-            if ((rs = stmt.executeQuery()) != null){
-                rs.next(); //VERY important that we call next! Otherwise, "waht do you want me to do??"
+//            String select = "SELECT * FROM tickets WHERE created_by = ?;";
+//            PreparedStatement ps = conn.prepareStatement(select);
+//            ps.setInt(1, created_by);
+
+            ResultSet rs; //not returning query result BECAUSE we are not running a select against the database!
+
+            if ((rs = stmt.executeQuery()) != null){ //lets try this...
+                rs.next();
 
                 int ticket_id = rs.getInt("ticket_id");
-                int createdBy = rs.getInt("created_by"); //redundant
+                int createdBy = rs.getInt("created_by"); //I am causing HEADACHE. Investigating...
                 String rson = rs.getString("reason");
                 float amnt = rs.getFloat("amount");
                 String status = rs.getString("status");
 
-               ticket = new Ticket(ticket_id, createdBy, rson, amnt, status); //dear GOD please work....
-               //int ticket_id, int created_by, String reason, float amount, String status
+               ticket = new Ticket(ticket_id, createdBy, rson, amnt, status);
             }
 
         } catch (SQLException e) {
@@ -62,7 +67,6 @@ public class TicketDAO implements TicketDAOint {
 
             while(rs.next()) { // MUST iterate, ie while doing this. tickets.add(ticket) BELOW,
 
-
                 int ticket_id = rs.getInt("ticket_id");
                 String reason = rs.getString("reason");
                 float amount = Float.parseFloat(rs.getString("amount"));
@@ -81,18 +85,14 @@ public class TicketDAO implements TicketDAOint {
 
 
     @Override
-    public List<Ticket> getAllTickets(){ // REFACTOR:: SHOULD TAKE IN NO ARGS.
+    public List<Ticket> getAllTickets(){
         Connection conn = ConnectionUtil.getConnection();
         List<Ticket> tickets = new ArrayList<>();
-       // User tixUser = new User();
 
         try{
 
-
             String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by;";
             PreparedStatement stmt = conn.prepareStatement(usSQL);
-
-
 
             ResultSet rs = stmt.executeQuery(); //
 

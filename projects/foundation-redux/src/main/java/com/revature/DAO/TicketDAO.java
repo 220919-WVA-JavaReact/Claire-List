@@ -23,7 +23,7 @@ public class TicketDAO implements TicketDAOint {
             stmt.setString(2, reason);
             stmt.setFloat(3, amount);
 
-            ResultSet rs;
+            ResultSet rs; //need to dig into this:: not returning any query results...
 
             if ((rs = stmt.executeQuery()) != null){
                 rs.next(); //VERY important that we call next! Otherwise, "waht do you want me to do??"
@@ -58,7 +58,7 @@ public class TicketDAO implements TicketDAOint {
             String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = '?';"; //"all except created_by int is needed, bc we have th euser name. MOVE THIS LOGIC ABOVE TO GET USER TICKETS!
             PreparedStatement stmt = conn.prepareStatement(usSQL);
 
-            stmt.setString(1, user_name);
+            stmt.setString(1, user_name); //now we are getting a COLUMN INDEX IS OUT OF RANGE error. Digging...
 
             ResultSet rs = stmt.executeQuery(); // let's see if the loop is not a problem anymore
 
@@ -71,7 +71,7 @@ public class TicketDAO implements TicketDAOint {
                 String reason = rs.getString("reason");
                 float amount = Float.parseFloat(rs.getString("amount"));
                 String status = rs.getString("password");
-                String username = rs.getString("user_name"));
+                String username = rs.getString("user_name");
 
                 Ticket ticket = new Ticket(ticket_id, createdBy, reason, amount, status, username); // F I X me!
                 tickets.add(ticket);

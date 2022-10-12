@@ -22,16 +22,16 @@ public class TicketService {
        // User user = usertick.getUser();
 
         System.out.println("For WHOMST is this ticket? (enter the user's ID)");
-        int createdBy = io.nextInt();
-        System.out.println("enter the REASON for this reimbursement request");
-        String reason =io.nextLine();
+        int createdBy = Integer.parseInt(io.nextLine()); //let's hope this stops the skipping...
+        System.out.println("enter the REASON for this reimbursement request"); //for some reason, I am being skipped...
+        String reason = io.nextLine();
 
         System.out.println("Enter the AMOUNT you are requesting. Enter only decmial numbers!");
         float amount = io.nextFloat();
 
         DecimalFormat df = new DecimalFormat("##.##");
         df.setRoundingMode(RoundingMode.DOWN);
-        
+
 
     Ticket tix = td.createTicket(reason, Float.parseFloat(df.format(amount)), createdBy); //jesus CHRIST JAVA D:<
    // tix.setUser(user);
@@ -40,13 +40,15 @@ public class TicketService {
 
     }
 
-    public void view(User user){ //List<Ticket> view(User user
+    public List<Ticket> view(){ //List<Ticket> view(User user
         System.out.println("Here you can VIEW the tickets.");
-        user.setUser_name(user.getUser_name());
-       // List<Ticket> allTix = td.getAllTickets(user); //I am creating PROBLEMS at runtime
-        System.out.println(user.getUser_name().toString()); //user is still NULL ??????????????
+        System.out.println("Enter your USERNAME for verification.");
+        String user = io.nextLine();
+
+        List<Ticket> allTix = td.getUserTickets(user); //I am creating PROBLEMS at runtime
+        System.out.println(allTix); //user is still NULL ??????????????
        // System.out.println("This USER's tickets: \n" + allTix);
-       // return allTix;
+        return allTix; //in case we want to DO something with this...
     }
 
 }

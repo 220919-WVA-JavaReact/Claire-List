@@ -30,12 +30,12 @@ public class App {
         while (on) {
             Scanner io = new Scanner(System.in);
             String choice = io.nextLine();
-            User loggedInUser = new User(); //ARE YOU HAPPY JAVA
+           // User loggedInUser = new User(); //not currently used!
 
             switch (choice) {
                 case "1":
 
-                    loggedInUser = us.login();
+                    us.login();
                     break;
 
                 case "l":
@@ -53,9 +53,9 @@ public class App {
 
                         switch (tickop) {
                             case "v":
-                                ts.view(loggedInUser);
+                                ts.view();
                                 //   System.out.println("Here is where you can view tickets!");
-                                tickContext = false; //will THIS break the loop?
+                                tickContext = false; //will THIS break the loop? update:: it did!
                                 break;
 
                             case "n":

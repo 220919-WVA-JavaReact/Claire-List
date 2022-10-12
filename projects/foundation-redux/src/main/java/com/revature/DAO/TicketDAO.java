@@ -10,10 +10,10 @@ import java.util.List;
 import com.revature.models.Ticket;
 public class TicketDAO implements TicketDAOint {
     @Override
-    public Ticket createTicket(String reason, float amount, User user) {
+    public Ticket createTicket(String reason, float amount, int created_by) {
         Ticket ticket = new Ticket();
         //User user = new User();
-        int created_by = 31; //change bt GET and SET ? //user.getUser_id()
+       // int created_by = 31; //change bt GET and SET ? //user.getUser_id()
 
         try (Connection conn = ConnectionUtil.getConnection()){
             String sql = "INSERT INTO tickets (created_by, reason, amount) VALUES (?,?,?)";

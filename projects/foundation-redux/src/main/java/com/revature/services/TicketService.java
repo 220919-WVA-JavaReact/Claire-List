@@ -4,6 +4,8 @@ import com.revature.DAO.TicketDAO;
 import com.revature.models.Ticket;
 import com.revature.models.User;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,22 +15,25 @@ public class TicketService {
     Scanner io = new Scanner(System.in);
     //I need:: "user_name" to feed to the below. Can i just do a
     //if user.role_num == 2, get all tix. else, only user's own tickets.
-    public Ticket create(User user){
+    public Ticket create(){
        /// Ticket usertick = new Ticket();
         //user.getUser_id();
 
        // User user = usertick.getUser();
 
-
+        System.out.println("For WHOMST is this ticket? (enter the user's ID)");
+        int createdBy = io.nextInt();
         System.out.println("enter the REASON for this reimbursement request");
         String reason =io.nextLine();
 
         System.out.println("Enter the AMOUNT you are requesting. Enter only decmial numbers!");
         float amount = io.nextFloat();
 
-        //okay, so we have to pull out the user; the above will not work.
+        DecimalFormat df = new DecimalFormat("##.##");
+        df.setRoundingMode(RoundingMode.DOWN);
+        
 
-    Ticket tix = td.createTicket(reason, amount, user);
+    Ticket tix = td.createTicket(reason, Float.parseFloat(df.format(amount)), createdBy); //jesus CHRIST JAVA D:<
    // tix.setUser(user);
         System.out.println("Your ticket: " + tix);
         return tix;

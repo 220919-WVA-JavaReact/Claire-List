@@ -21,8 +21,6 @@ public class Ticket {
     public Ticket() {
     }
 
-//    public Ticket(int ticket_id, int created_by, String reason, float amount, String status) {
-//    }
 
     public Ticket(int ticket_id, int created_by, String reason, float amount, String status, String user) { //I am used to VIEW TICKETS ie
         this.ticket_id = ticket_id;

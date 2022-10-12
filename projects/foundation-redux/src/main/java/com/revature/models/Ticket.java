@@ -84,8 +84,9 @@ public class Ticket {
     public String toString() {
         return "Your Ticket: {" +
                 "ticket_id=" + ticket_id +
-                ", created by='" + created_by + '\'' +
+                ", created by='" + user + '\'' +
                 ", amount='" + amount + '\'' +
+                ", reason='" + reason + '\'' +
                 ", status='" + status + '\'' +
                  '}';
     }

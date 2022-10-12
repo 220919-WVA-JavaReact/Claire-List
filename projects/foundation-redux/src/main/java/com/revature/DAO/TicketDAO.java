@@ -74,16 +74,16 @@ public class TicketDAO implements TicketDAOint {
                 String status = rs.getString("status");
                 String username = rs.getString("user_name");
 
-                Ticket ticket = new Ticket(ticket_id, reason, amount, status, username); //currently returngin
-                //// [Your Ticket: {ticket_id=11, created by='0', amount='26.86', status='pending'}]
-                // closer!
+                Ticket ticket = new Ticket(ticket_id, reason, amount, status, username); //currently returngin,,.
+                //// [Your Ticket: {ticket_id=11, created by='jd3321', amount='26.86', reason='', status='pending'}]
+                // closer! WHy is reason blank? Digging...
                 tickets.add(ticket);
             }
 
         } catch (SQLException e){
             e.printStackTrace();
         }
-        return tickets;
+        return tickets; //...do I need to iterate over you? --> only returning the ONE ticket so far...
     }
 
 

@@ -88,6 +88,6 @@ public class Ticket {
                 ", amount='" + amount + '\'' +
                 ", reason='" + reason + '\'' +
                 ", status='" + status + '\'' +
-                 '}';
+                 '}' + "\n";
     }
 }

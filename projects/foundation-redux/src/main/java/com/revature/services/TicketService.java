@@ -5,6 +5,7 @@ import com.revature.models.Ticket;
 import com.revature.models.User;
 
 import java.math.RoundingMode;
+import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Scanner;
@@ -51,16 +52,25 @@ public class TicketService {
         return allTix; //in case we want to DO something with this...
     }
 
+    public List<Ticket> viewAll(){
+
+        List<Ticket> all = td.getAllTickets();
+
+        System.out.println("Type your role level to continue.");
+        int roleCheck = Integer.parseInt(io.nextLine());
+
+        if(roleCheck == 1){
+            System.out.println("Invalid role, must be a manager to view ALL tickets.");
+            return null;
+        } else if (roleCheck == 2){
+            System.out.println("All users TICKETS: ");
+            System.out.println(all);
+            return all;
+        } else {
+            System.out.println("Unknown ROLE, please try again.");
+            return null;
+        }
+
+    }
+
 }
-
-    // System.out.println("For whom is this ticket?"); //getUserName();
-
-//    String tusername = io.nextLine();
-//
-//                                System.out.println("How much should " + tusername + " be reiumbursed?");
-//                                        String amount = io.nextLine(); //check to make this a float value!
-//
-//                                        System.out.println("For what REASON is this reimbursement requested?");
-//                                        String reason = io.nextLine();
-//
-//                                        System.out.println("User " + tusername + " requests " + amount + " for reason \n " + reason);

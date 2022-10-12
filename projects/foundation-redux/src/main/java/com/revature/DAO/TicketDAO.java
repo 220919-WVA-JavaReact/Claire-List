@@ -50,10 +50,8 @@ public class TicketDAO implements TicketDAOint {
     public List<Ticket> getUserTickets(String user_name) {
         Connection conn = ConnectionUtil.getConnection();
         List<Ticket> tickets = new ArrayList<>();
-        // User tixUser = new User();
+
         try{
-
-
             String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = ?;";
 
             PreparedStatement stmt = conn.prepareStatement(usSQL);
@@ -96,20 +94,16 @@ public class TicketDAO implements TicketDAOint {
 
 
 
-            ResultSet rs = stmt.executeQuery(); // let's see if the loop is not a problem anymore
+            ResultSet rs = stmt.executeQuery(); //
 
-            if ((rs = stmt.executeQuery()) != null) {
-                rs.next();
-
-
+            while (rs.next()) {
                 int ticket_id = rs.getInt("ticket_id");
-              //  int createdBy = rs.getInt("created_by"); //I really REALLY hope this works!
                 String reason = rs.getString("reason");
                 float amount = Float.parseFloat(rs.getString("amount"));
                 String status = rs.getString("status");
                 String username = rs.getString("user_name");
 
-                Ticket ticket = new Ticket(ticket_id, reason, amount, status, username); // DEPRECATED createdBy. Testing...
+                Ticket ticket = new Ticket(ticket_id, reason, amount, status, username);
                 tickets.add(ticket);
             }
 

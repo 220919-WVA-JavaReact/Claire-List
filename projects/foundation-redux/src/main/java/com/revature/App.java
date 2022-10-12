@@ -65,6 +65,10 @@ public class App {
                                 break;
                             //ticket.createTicket(infos);
 
+                            case "va":
+                                ts.viewAll();
+                                break;
+
                             case "q":
                                 tickContext = false;
                                 System.out.println("type 't' to view ticket menu options, or 'l' to logout.");

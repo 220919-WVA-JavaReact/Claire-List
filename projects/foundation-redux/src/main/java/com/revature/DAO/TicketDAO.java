@@ -51,39 +51,34 @@ public class TicketDAO implements TicketDAOint {
         Connection conn = ConnectionUtil.getConnection();
         List<Ticket> tickets = new ArrayList<>();
         // User tixUser = new User();
-
         try{
 
 
             String usSQL = "SELECT users.user_name, tickets.ticket_id, tickets.reason, tickets.amount, tickets.status FROM tickets LEFT JOIN users ON users.user_id = tickets.created_by WHERE users.user_name = ?;";
-            //removed single quotes, let's see if it works...
+
             PreparedStatement stmt = conn.prepareStatement(usSQL);
 
             stmt.setString(1, user_name);
 
             ResultSet rs = stmt.executeQuery();
 
-            if ((rs = stmt.executeQuery()) != null) {
-                rs.next();
+            while(rs.next()) { // MUST iterate, ie while doing this. tickets.add(ticket) BELOW,
 
 
                 int ticket_id = rs.getInt("ticket_id");
-               // int createdBy = rs.getInt("created_by"); //I really REALLY hope this works!
                 String reason = rs.getString("reason");
                 float amount = Float.parseFloat(rs.getString("amount"));
                 String status = rs.getString("status");
                 String username = rs.getString("user_name");
 
-                Ticket ticket = new Ticket(ticket_id, reason, amount, status, username); //currently returngin,,.
-                //// [Your Ticket: {ticket_id=11, created by='jd3321', amount='26.86', reason='', status='pending'}]
-                // closer! WHy is reason blank? Digging...
+                Ticket ticket = new Ticket(ticket_id, reason, amount, status, username);
                 tickets.add(ticket);
             }
 
         } catch (SQLException e){
             e.printStackTrace();
         }
-        return tickets; //...do I need to iterate over you? --> only returning the ONE ticket so far...
+        return tickets; //needed to use WHILE loop so that tickets.add() actually WORKED!
     }
 
 

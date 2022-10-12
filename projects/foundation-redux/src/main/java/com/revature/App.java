@@ -62,6 +62,7 @@ public class App {
                                // User user = new User();
                                 System.out.println("Create a NEW ticket here!");
                                 ts.create();
+                                tickContext = false;
                                 break;
                             //ticket.createTicket(infos);
 

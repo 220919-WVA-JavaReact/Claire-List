@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a717ab23-9e11-4043-8544-0991df5547ff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/TODOS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/DAO/TicketDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/DAO/TicketDAOint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/DAO/UserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/DAO/UserDAOint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/models/Ticket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/services/TicketService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/services/UsersService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/src/main/java/com/revature/util/ConnectionUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/DAO/TicketDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/DAO/TicketDAOint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/DAO/UserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/DAO/UserDAOint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/models/Ticket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/services/TicketService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/services/UsersService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../foundation-redux/target/classes/com/revature/util/ConnectionUtil.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2G8gMBkKDPfLSEZwxDI0aMcblWV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a717ab23-9e11-4043-8544-0991df5547ff" name="Changes" comment="" />
+      <created>1665775577305</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665775577305</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -15,8 +15,7 @@ public class TestServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         System.out.println("[LOG] - SanityServlet Instantiated!");
-        System.out.println("[LOG] - Init param test-init-key: " + this.getServletConfig().getInitParameter("test-init-key"));
-        System.out.println("[LOG] - Context param test-init-key: " + this.getServletContext().getInitParameter("test-context-key"));
+
     }
 
     @Override
@@ -34,7 +33,8 @@ public class TestServlet extends HttpServlet {
         System.out.println("[LOG] - Request Header, example: " + req.getHeader("example"));
         System.out.println("[LOG] - Request Query String: " + req.getQueryString());
 
-        System.out.println("[LOG] - was filtered? " + req.getAttribute("was-filtered"));
+//        System.out.println("[LOG] - was filtered? " + req.getAttribute("was-filtered"));
+        //if you want to do custom filtering, will have to build that
 
         // We'll formulate a basic response to send back
         // Set the status code

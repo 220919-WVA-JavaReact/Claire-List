@@ -1,7 +1,6 @@
 package com.revature.servlets;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,18 +10,15 @@ import java.time.LocalDateTime;
 // Whenever we want to create a servlet we'll extend the HttpServlet abstract class to handle our methods
 //BE SURE TO CREATE THE LISTENER CONTEXT !
 
-public class TestServlet extends HttpServlet {
+public class SanityServlet extends HttpServlet {
 
-//    @Override
-//    public void init() throws ServletException {
-//        System.out.println("[LOG] - SanityServlet Instantiated!");
-//
-//    }
-//
-//    @Override
-//    public void destroy() {
-//        System.out.println("[LOG] - SanityServlet Destroyed");
-//    }
+    @Override
+    public void init() throws ServletException {
+        System.out.println("[LOG] - SanityServlet Instantiated!");
+
+    }
+
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { //STILL A 404
@@ -46,5 +42,9 @@ public class TestServlet extends HttpServlet {
         resp.setHeader("example-response-header", "some-example-value");
        // resp.setContentType("text/html");
         resp.getWriter().write("This is the response payload");
+    }
+    @Override
+    public void destroy() {
+        System.out.println("[LOG] - SanityServlet Destroyed");
     }
 }

@@ -39,7 +39,7 @@
     </dependencies>
 
     <build>
-        <pluginManagement>
+
             <plugins>
                 <plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
@@ -58,7 +58,7 @@
                     <version>3.3.1</version>
                 </plugin>
             </plugins>
-        </pluginManagement>
+
     </build>
 
 </project>

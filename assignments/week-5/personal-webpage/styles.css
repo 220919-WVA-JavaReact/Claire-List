@@ -6,7 +6,11 @@ body{
 h1{
     background-image: linear-gradient(90deg,#d62900,#ff9b55,#d461a6,#a50062);
     /* background-clip: text; */
-    color: #ae1e1d;
+    color: #13111c;
+}
+
+h1::innertext{
+    display: none;
 }
 
 
@@ -16,4 +20,8 @@ h1{
 
 .profile-pic>img{
     border-radius: 50%;
+}
+
+.list-skills>ul{
+    list-style-type: circle;
 }

@@ -18,6 +18,10 @@ p b{
     color: orange;
 }
 
+.nav-wrapper>a{
+    color: gold;
+}
+
 .message{
     color: #ae1e1d;
 }

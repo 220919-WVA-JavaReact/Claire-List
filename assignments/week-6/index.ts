@@ -1,9 +1,12 @@
-function sayHi(){
+export {}
+//This fixed it for osme reason!
+
+function sayHi(...args: any): void{
     console.log('Hi!');
 }
 
-function sayAnything(any: string | number){
-    console.log(any);
+function sayAnything(arg: string | number){
+    console.log(arg);
 }
 
 sayHi();

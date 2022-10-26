@@ -1,8 +1,6 @@
-
-import './App.css';
-import About from './About';
-import ProfilePic from './ProfilePic';
-import Nav from './Nav';
+import About from './components/About';
+import ProfilePic from './components/ProfilePic';
+import Nav from './components/Nav';
 
 function App() {
   return (

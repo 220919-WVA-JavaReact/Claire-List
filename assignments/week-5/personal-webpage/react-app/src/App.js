@@ -1,6 +1,7 @@
 import About from './components/About';
 import ProfilePic from './components/ProfilePic';
 import Nav from './components/Nav';
+import Message from './components/Message';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <About />
       <Nav />
       <ProfilePic />
+      <Message />
     </div>
   );
 }

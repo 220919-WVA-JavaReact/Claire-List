@@ -40,8 +40,12 @@ p b{
     list-style-type: circle;
 }
 
+li:hover {
+    color: red;
+}
+
 .list-skills{
     display: flex;
     align-items: center;
-
 }
+

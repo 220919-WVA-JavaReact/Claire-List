@@ -2,7 +2,7 @@ function ListSkills(){ //TODO I should MAP over a list of skills, make AddSkill 
     return (
         <div className='list-skills'>
         <h2>Here is a(n incomplete) list of MY skills!</h2>
-        <ul>
+        <ul className='list-actual'>
             <li>Java</li>
             <li>JavaScript</li>
             <li>React</li>

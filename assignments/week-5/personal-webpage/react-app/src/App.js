@@ -2,6 +2,7 @@ import About from './components/About';
 import ProfilePic from './components/ProfilePic';
 import Nav from './components/Nav';
 import Message from './components/Message';
+import ListSkills from './components/ListSkills';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Nav />
       <ProfilePic />
       <Message />
+      <ListSkills />
     </div>
   );
 }

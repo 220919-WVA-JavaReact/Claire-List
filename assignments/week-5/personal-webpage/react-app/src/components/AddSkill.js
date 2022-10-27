@@ -19,17 +19,17 @@ function AddSkill(){ //get FORMS in here!
         return null;
     }
 
-    useEffect(()=>{
-        //ie, on click of submit, we will post via axios!
-        axios.post('url', data)
-            .then(res=>{
-                //set into state
-                setSkill(data)
-            }).catch(err=>{
-                console.error(err);
-            })
+    // useEffect(()=>{ //we might deprecate useEffect for now -- can do this with simple onSubmit
+    //     //ie, on click of submit, we will post via axios!
+    //     axios.post('url', data)
+    //         .then(res=>{
+    //             //set into state
+    //             setSkill(data)
+    //         }).catch(err=>{
+    //             console.error(err);
+    //         })
 
-    }, [])
+    // }, [])
 
     return(
         <div className='add-skill-box'>

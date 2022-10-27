@@ -1,15 +1,55 @@
+//The RIGHT way of doing things
+//is sometimes very annoying
+
+import Skill from './Skill'; //To write!!
+
 function ListSkills(){ //TODO I should MAP over a list of skills, make AddSkill component
+   // const {text, id} = props;
+    const skills = [ //maybe add experience level?
+    //this would normall come from an external resource, like an API call.
+        {
+            id: 1,
+            text: 'Java'
+        },
+        {
+            id: 2,
+            text: 'JavaScript'
+        },
+        {
+            id: 3,
+            text: 'React'
+        },
+        {
+            id: 4,
+            text: 'Node.js'
+        },
+        {
+            id: 5,
+            text: 'Express'
+        },
+        {
+            id: 6,
+            text: 'PostgreSQL'
+        },
+        {
+            id: 7,
+            text: 'MongoDB'
+        },
+    ]
+
+    //REMEMBER: use the 'key' "attribute" for mapping objects, CLAIRE
+
     return (
         <div className='list-skills'>
         <h2>Here is a(n incomplete) list of MY skills!</h2>
         <ul className='list-actual'>
-            <li>Java</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-            <li>Express</li>
-            <li>PostgreSQL</li>
-            <li>MongoDB</li>
+           
+            {
+                skills.map( skill => {
+                    return <Skill key={skill.id} text={skill.text} />
+                } )
+            }
+            {/* also deprecaated id here. */}
         </ul>
         </div>
     )

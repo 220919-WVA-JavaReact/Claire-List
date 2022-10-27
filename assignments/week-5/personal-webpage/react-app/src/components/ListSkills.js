@@ -3,8 +3,7 @@
 
 import Skill from './Skill'; //To write!!
 
-function ListSkills(){ //TODO I should MAP over a list of skills, make AddSkill component
-   // const {text, id} = props;
+function ListSkills(){ //TODO make AddSkill component
     const skills = [ //maybe add experience level?
     //this would normall come from an external resource, like an API call.
         {
@@ -43,13 +42,11 @@ function ListSkills(){ //TODO I should MAP over a list of skills, make AddSkill 
         <div className='list-skills'>
         <h2>Here is a(n incomplete) list of MY skills!</h2>
         <ul className='list-actual'>
-           
             {
                 skills.map( skill => {
                     return <Skill key={skill.id} text={skill.text} />
                 } )
             }
-            {/* also deprecaated id here. */}
         </ul>
         </div>
     )

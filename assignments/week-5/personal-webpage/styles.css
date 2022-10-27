@@ -40,7 +40,7 @@ p b{
     list-style-type: circle;
 }
 
-li:hover {
+ul li:hover {
     color: red;
 }
 

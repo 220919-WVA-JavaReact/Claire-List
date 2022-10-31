@@ -45,9 +45,9 @@ function populateData(response) {
     dataPopDiv.appendChild(dataPopPara);
 
     const doc = document.getElementById('getData');
-    doc.appendChild(dataPopDiv);
+    return doc.appendChild(dataPopDiv);
 
-    console.log(response);
+   // console.log(response);
 }
 
 // document.body.onload = addElement;

@@ -21,7 +21,7 @@ async function getData() {
 
     let httpResponse = await fetch(`${baseApiURL}/${id}`);
 
-    if(httpResponse.status >= 200 && httpResponse.status < 300){
+    if(httpResponse.status >= 200 && httpResponse.status < 300){ //........ what?
     let data = await httpResponse.json();
 
     populateData(data);
@@ -32,5 +32,37 @@ async function getData() {
 }
 
 function populateData(response) {
+
+    //document element selectors
+    const dataPopDiv = document.createElement('div');
+    const dataPopPara = document.createElement('p');
+
+    //document element creators
+    const content = document.createTextNode(response); //we need to chekc if we can't get less infos from this!
+
+    //element appending(s)
+    dataPopPara.appendChild(content);
+    dataPopDiv.appendChild(dataPopPara);
+
+    const doc = document.getElementById('getData');
+    doc.appendChild(dataPopDiv);
+
     console.log(response);
 }
+
+// document.body.onload = addElement;
+
+// function addElement() {
+//   // create a new div element
+//   const newDiv = document.createElement("div");
+
+//   // and give it some content
+//   const newContent = document.createTextNode("Hi there and greetings!");
+
+//   // add the text node to the newly created div
+//   newDiv.appendChild(newContent);
+
+//   // add the newly created element and its content into the DOM
+//   const currentDiv = document.getElementById("div1");
+//   document.body.insertBefore(newDiv, currentDiv);
+// }
